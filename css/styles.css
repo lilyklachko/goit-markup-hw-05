@@ -182,7 +182,7 @@ header {
       var(--hero-overlay),
       var(--hero-overlay)
     ),
-    url('../images/hero_bg.jpg');
+    url("../images/hero_bg.jpg");
   background-color: var(--footer-header);
 
   text-align: center;
@@ -291,6 +291,9 @@ header {
   -ms-border-radius: 0 0 4px 4px;
   -o-border-radius: 0 0 4px 4px;
 }
+.team-cards-text-area {
+  padding: 32px 30px;
+}
 .our-team-list {
   display: flex;
 }
@@ -298,7 +301,7 @@ header {
   margin-right: 30px;
 }
 .team-names {
-  margin: 30px 0 10px 0;
+  margin: 0 0 10px 0;
   text-align: center;
 }
 .team-position {
@@ -309,15 +312,25 @@ header {
   display: flex;
   width: 206px;
   margin: 0 auto;
-  margin-bottom: 30px;
-
   flex-basis: calc(100% / 4 - 10px);
 }
 .icon-social {
-  display: inline-block;
+  display: flex;
+  margin: auto;
 
-  padding: 12px;
+  width: 20px;
+  height: 20px;
+}
+.icon-social {
+  display: flex;
+  margin: auto;
+  height: 44px;
+  width: 44px;
   margin-right: 10px;
+}
+.icon-logo-social {
+  display: flex;
+  margin: auto;
 }
 .icon-social:hover,
 .icon-social:focus {
@@ -330,6 +343,11 @@ header {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
+.icon-social:hover .icon-logo-social,
+.icon-social:focus .icon-logo-social {
+  margin: auto;
+}
+
 .icon-social:hover .icon-logo-social,
 .icon-social:focus .icon-logo-social {
   fill: var(--body-hero-color);
@@ -508,9 +526,7 @@ address {
 .portfolio-list h2 {
   margin-bottom: 4px;
 }
-.portfolio-list p {
-  margin-bottom: 20px;
-}
+
 .portfolio-item-text {
   border: 1px solid var(--portfolio-cards-border);
   border-top: none;
