@@ -639,23 +639,27 @@ address {
 }
 .portfolio-card-img {
   position: relative;
+  overflow: hidden;
 }
 
 .portfolio-card-overlay {
   position: absolute;
   width: 100%;
   height: 100%;
-  bottom: 0;
+  top: 0;
   right: 0;
 
+  transform: translateY(100%);
+  transition: transform 250ms ease;
+
+  padding: 63px 24px;
   font-size: 18px;
   line-height: 1.56;
   background-color: var(--accent-color-blurry);
   color: var(--body-hero-color);
-  -webkit-transform: ;
-  -moz-transform: ;
-  -ms-transform: ;
-  -o-transform: ;
+}
+.portfolio-card:hover .portfolio-card-overlay {
+  transform: translateY(0);
 }
 /* .portfolio > :not(li:nth-child(3n)) {
   margin-right: 30px;
