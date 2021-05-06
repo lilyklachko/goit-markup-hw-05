@@ -3,6 +3,7 @@
   --accent-color-blurry: rgba(33, 150, 243, 0.9);
   --main-text-color: rgba(33, 33, 33, 1);
   --sub-text-color: rgba(117, 117, 117, 1);
+  --sub-sub-text-color: rgba(117, 117, 117, 0.5);
   --email-phone-color: rgba(255, 255, 255, 0.6);
   --bnt-bg--color: rgba(245, 244, 250, 1);
   --footer-header: rgba(47, 48, 58, 1);
@@ -26,6 +27,7 @@
   --works-bg: rgba(47, 48, 58, 0.8);
   --modal-bg: rgba(0, 0, 0, 0.2);
   --modal-btn-close-bg: rgba(0, 0, 0, 0.1);
+  --submit-btn-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 body {
   background-color: var(--body-hero-color);
@@ -290,9 +292,10 @@ header {
   transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  width: 528px;
-  height: 581px;
+  min-width: 528px;
+  min-height: 581px;
   background-color: var(--body-hero-color);
+  border-radius: 4px;
 }
 .modal-close-btn {
   position: absolute;
@@ -314,7 +317,90 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.closing-btn-modal-svg {
+
+/* Form in modal backdrop */
+
+.form {
+  padding: 40px;
+}
+.modal-form-header {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--main-text-color);
+  margin-bottom: 12px;
+}
+.form-basic {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.form-presonal-info-list {
+  margin-bottom: 20px;
+}
+.form-personal-info {
+  padding: 12px 16px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.form-label {
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+
+  margin-bottom: 4px;
+}
+.form-personal-info.comment {
+  resize: none;
+  width: 448px;
+  height: 120px;
+}
+
+/* i have to fins a solition for positioning icons in form */
+.form-icon {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12px;
+  height: 12px;
+}
+.comment::placeholder {
+  color: var(--sub-sub-text-color);
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+}
+.form-agreement {
+  margin-bottom: 30px;
+}
+.agreement-text {
+  font-size: 14px;
+  line-height: 1.71;
+}
+.form-agreement-link {
+  color: var(--accent-color);
+}
+.submit-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  box-shadow: var(--submit-btn-shadow);
+  border: none;
+  color: var(--body-hero-color);
+  margin: 0 auto;
+  cursor: pointer;
 }
 /* advantages */
 
@@ -459,10 +545,6 @@ header {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
-/* .icon-social:hover .icon-logo-social,
-.icon-social:focus .icon-logo-social {
-  margin: auto;
-} */
 
 .icon-social:hover .icon-logo-social,
 .icon-social:focus .icon-logo-social {
@@ -652,10 +734,9 @@ address {
   max-width: 100%;
 }
 .portfolio-link {
+  display: block;
   text-decoration: none;
   color: inherit;
-}
-.portfolio-card {
   cursor: pointer;
 
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -665,17 +746,10 @@ address {
   -o-transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio-link:hover .portfolio-card,
-.portfolio-link:focus .portfolio-card {
+.portfolio-link:hover,
+.portfolio-link:focus {
   box-shadow: var(--portfolio-shadow);
 }
-
-/* .portfolio-list {
-  margin-bottom: 30px;
-}
-.portfolio-list:nth-last-child(-n + 3) {
-  padding-bottom: 0;
-} */
 
 .portfolio-list h2 {
   margin-bottom: 4px;
@@ -707,9 +781,7 @@ address {
   background-color: var(--accent-color-blurry);
   color: var(--body-hero-color);
 }
-.portfolio-card:hover .portfolio-card-overlay {
+.portfolio-link:hover .portfolio-card-overlay,
+.portfolio-link:focus .portfolio-card-overlay {
   transform: translateY(0);
 }
-/* .portfolio > :not(li:nth-child(3n)) {
-  margin-right: 30px;
-}  */
